@@ -6,9 +6,9 @@ import java.time.LocalDate
  *
  */
 class Etudiant(
-    val id: Int?,
-    val nom: String,
-    val prenom: String,
-    val email: String,
-    val dateNaissance: LocalDate
+    var id: Int?,
+    var nom: String,
+    var prenom: String,
+    var email: String,
+    var dateNaissance: LocalDate
 )
