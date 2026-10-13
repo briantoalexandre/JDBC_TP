@@ -61,7 +61,7 @@ class EtudiantDAO (val bdd: BDD = db) {
     }
 
     /**
-     * TODO commentaires
+     * TODO commentaire
      */
 
     fun findById(id: Int): Etudiant? {
@@ -83,13 +83,13 @@ class EtudiantDAO (val bdd: BDD = db) {
     }
 
     /**
-     *
+     * TODO commentaire
      */
 
     fun save(etudiant: Etudiant): Etudiant? {
         val requetePreparer: PreparedStatement
         if (etudiant.id == null) {
-// Insertion
+            // Insertion
             val sql = """
 INSERT INTO etudiant (nom, prenom, email, date_naissance)
 VALUES (?, ?, ?, ?)
@@ -116,7 +116,7 @@ VALUES (?, ?, ?, ?)
                 return etudiant
             }
         } else {
-// Mise à jour
+            // Mise à jour
             val sql = """
 UPDATE etudiant
 SET nom = ?, prenom = ?, email = ?, date_naissance = ?
@@ -159,4 +159,16 @@ WHERE id = ?
         }
     }
 
+    /**
+     * TODO commentaire
+     */
+
+    fun saveAll(entraineurs: Collection<Etudiant>): MutableList<Etudiant> {
+        val result = mutableListOf<Etudiant>()
+        for (e in entraineurs) {
+            val sauvegarde = save(e)
+            if (sauvegarde != null) result.add(sauvegarde)
+        }
+        return result
+    }
 }
