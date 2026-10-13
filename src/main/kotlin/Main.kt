@@ -1,16 +1,13 @@
-package org.example
+import model.dao.EtudiantDAO
+import org.example.jdbc.BDD
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+val db = BDD()
+val etudiantDAO = EtudiantDAO()
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
-
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+    db.getConnection()
+    val etudiants = etudiantDAO.findAll()
+    for (etudiant in etudiants) {
+        println("${etudiant.id} => ${etudiant.nom}")
     }
+    db.close()
 }

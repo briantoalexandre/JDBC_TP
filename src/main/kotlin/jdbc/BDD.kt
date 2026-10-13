@@ -13,13 +13,11 @@ requêtes SQL préparées.
  * @property url L'URL de la base de données.
  * @property user Le nom d'utilisateur pour la connexion à la base de données.
  * @property password Le mot de passe pour la connexion à la base de données.
- * TODO : Remplacer localhost par l'adresse IP du serveur de BDD.
- * TODO : le user et password par celui de la BDD.
  */
 class BDD(
-    var url: String = "jdbc:mysql://localhost:3306/bdd_jdbc",
-    var user: String = "root",
-    var password: String = "",
+    var url: String = "jdbc:mysql://172.17.70.9:3306/bdd_jdbc",
+    var user: String = "sio",
+    var password: String = "sio22",
 ) {
     var connectionBDD: Connection? = null
     /**
