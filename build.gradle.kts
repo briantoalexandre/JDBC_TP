@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("com.mysql:mysql-connector-j:9.4.0")
 }
 
 kotlin {
@@ -20,3 +21,4 @@ kotlin {
 tasks.test {
     useJUnitPlatform()
 }
+
